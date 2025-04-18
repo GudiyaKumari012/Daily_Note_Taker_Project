@@ -8,7 +8,7 @@ app1 = Flask(__name__)
 app1.secret_key = 'sessionKey'
 app1.permanent_session_lifetime = timedelta(days=1)
 
-from database import addUser, get_user_id, loginCheck, mailCheck
+from database import addUser, get_user_id, loginCheck, mailCheck, get_user_name
 from notes_db import get_note, add_note
     
 
@@ -82,7 +82,7 @@ def messagePage():
     prev_notes = get_note(datetime_str)
     print("NOTES")
     print(prev_notes)
-    return render_template('msg.html', _date = datetime.date.today(), _note = prev_notes)
+    return render_template('msg.html', _date = datetime.date.today(), _note = prev_notes, user_name=get_user_name(session['userId']))
 
 @app1.route('/logout')
 def logout():

@@ -54,6 +54,19 @@ def get_user_id(_mail, _password):
     print(user_id)
     return user_id
 
+def get_user_name(user_id):
+    conn = get_db()
+    cur = conn.execute('''SELECT username FROM userdata
+                          WHERE id = ?''', (user_id,))
+    row = cur.fetchone()
+
+    if row is not None:
+        user_name = row[0]
+    else:
+        user_name = None
+
+    print('User Name:', user_name)
+    return user_name
 
 def loginCheck(mail, password):
     password = password.encode()
