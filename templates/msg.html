@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style//login.css')}}">
+    <title>Your Email Notifier</title>
+</head>
+
+<body>
+    <div>
+        <h3>{{_date}}</h3>
+        <h2>Online Notepad</h2>
+        
+        <form action="/yournote" method="post">
+            <textarea name="content">{{_note}}</textarea>
+            <br><br>
+            <input type="submit" value="Save">
+        </form>
+
+        <form action="/old_notes" method="post">
+            <label for="old note">Get your old note</label>
+            <input type="date" id="note_date" name="note_date">
+            <input type="submit" value="get">
+        </form>
+
+
+        <span style="padding: 2px;">
+            <a href="/logout"><button type="submit">LOG_OUT</button></a>
+        </span>
+
+    </div>
+</body>
+
+</html>

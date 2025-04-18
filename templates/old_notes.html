@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style//login.css')}}">
+    <title>{{_date}}</title>
+</head>
+
+<body>
+    <div>
+        <h3>{{_date}}</h3>
+        <h4>{{_notes}}</h4>
+        
+
+        <form action="/old_notes" method="post">
+            <label for="note_date">Date of note:</label>
+            <input type="date" id="note_date" name="note_date">
+            <input type="submit" value="GET">
+        </form>
+        <a href="/yournote">BACK</a>
+        <span style="padding: 2px;">
+            <a href="/logout"><button type="submit">LOG_OUT</button></a>
+        </span>
+
+    </div>
+</body>
+
+</html>
